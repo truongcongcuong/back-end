@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: CONFIG-SERVER
+
+    # read config from git
+  cloud:
+    config:
+      server:
+        bootstrap: false
+        git:
+          #                    clone-on-start: true
+          uri: https://github.com/kttkpm-n11/back-end
+          #                    branch: master
+          default-label: master
+          #                    thu muc con trong repository (neu co)
+          search-paths: cloud-config
+#          clone-submodules: false
+
+
+#    read config from local (doc file config tu thu muc trong may)
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: C:\Users\maikiencuong\Documents\intelij\bai-tap-lon-kien-truc-thiet-ke-pm\cloud-config
