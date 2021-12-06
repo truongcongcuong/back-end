@@ -26,7 +26,7 @@ public class ProductService {
     public ProductSupplier findById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isPresent()) {
-            Product product = productOptional.get();
+            var product = productOptional.get();
             var supplier = restTemplate.getForObject(supplierUrl + "/" + product.getSupplierId(), Supplier.class);
             return ProductSupplier
                     .builder()
