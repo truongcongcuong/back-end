@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+@EnableEurekaClient
 @SpringBootApplication
 public class SupplierServiceApplication implements CommandLineRunner {
 
@@ -20,7 +22,7 @@ public class SupplierServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         for (int i = 1; i <= 4; i++) {
-            Supplier supplier = Supplier.builder()
+            var supplier = Supplier.builder()
                     .id((long) i)
                     .name("supplier " + i)
                     .address("address supplier " + i)
